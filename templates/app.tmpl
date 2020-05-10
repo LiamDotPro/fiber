@@ -1,0 +1,10 @@
+package main
+
+func main() {
+  {{if configEnabled}}
+      app := fiber.New(&fiber.Config{{{appConfig}}})
+  {{else}}
+      app := fiber.New()
+  {{end}}
+  app.Listen({{port}})
+}
